@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('login')->group(function (){
+    Route::get('/register','Index\LoginController@register');
+    Route::get('/login','Index\LoginController@login');
+
+});
+Route::prefix('index')->group(function (){
+    Route::get('/index','Index\IndexController@index');
+    Route::get('/login','Index\IndexController@login');
+
+});
+
+
