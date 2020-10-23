@@ -40,33 +40,31 @@
                         <img src="/static/index/img/wx_cz.jpg" />
                     </div>
                     <div id="profile" class="tab-pane  active">
-                        <form class="sui-form">
+                        @if(session('msg'))
+                            {{session('msg')}}
+                        @endif
+                        <form  action="{{url('login/logindo')}}" method="post" class="sui-form">
+                            @csrf
                             <div class="input-prepend"><span class="add-on loginname"></span>
-                                <input id="prependedInput" type="text" placeholder="邮箱/用户名/手机号" class="span2 input-xfat">
+                                <input id="prependedInput" name="user_name" type="text" placeholder="邮箱/用户名/手机号" class="span2 input-xfat">
                             </div>
                             <div class="input-prepend"><span class="add-on loginpwd"></span>
-                                <input id="prependedInput" type="password" placeholder="请输入密码" class="span2 input-xfat">
+                                <input id="prependedInput"  name='password' type="password" placeholder="请输入密码" class="span2 input-xfat">
                             </div>
-                            <div class="setting">
-                                <label class="checkbox inline">
-                                    <input name="m1" type="checkbox" value="2" checked="">
-                                    自动登录
-                                </label>
-                                <span class="forget">忘记密码？</span>
-                            </div>
+{{--                            <div class="setting">--}}
+{{--                                <label class="checkbox inline">--}}
+{{--                                    <input name="m1" type="checkbox" value="2" checked="">--}}
+{{--                                    自动登录--}}
+{{--                                </label>--}}
+{{--                                <span class="forget">忘记密码？</span>--}}
+{{--                            </div>--}}
                             <div class="logined">
-                                <a class="sui-btn btn-block btn-xlarge btn-danger" href="home-index.html" >登&nbsp;&nbsp;录</a>
-                            </div>
+                                <a href="https://github.com/login/oauth/authorize?client_id=d83bbe4d11c1dad33816">github登录</a>
+                                <input type="submit" value="登陆">
+                                </div>
                         </form>
                         <div class="otherlogin">
-                            <div class="types">
-                                <ul>
-                                    <li><img src="/static/index/img/qq.png" width="35px" height="35px" /></li>
-                                    <li><img src="/static/index/img/sina.png" /></li>
-                                    <li><img src="/static/index/img/ali.png" /></li>
-                                    <li><img src="/static/index/img/weixin.png" /></li>
-                                </ul>
-                            </div>
+
                             <span class="register"><a href="{{url('login/register')}}" target="_blank">立即注册</a></span>
                         </div>
                     </div>
@@ -100,3 +98,7 @@
 </body>
 
 </html>
+
+
+
+

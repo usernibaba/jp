@@ -23,8 +23,14 @@
             <div class="py-container">
                 <div class="shortcut">
                     <ul class="fl">
-                        <li class="f-item">品优购欢迎您！</li>
-                        <li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
+
+                        @if(session('user_name'))
+                            欢迎    <li class="f-item" style="color: red">{{session('user_name')}}</li> 来到品优购<a href="{{url('login/quit')}}">退出</a>
+                        @elseif(session('user_tel'))
+                            欢迎    <li class="f-item" style="color: red">{{session('user_tel')}}</li> 来到品优购<a href="{{url('login/quit')}}">退出</a>
+                        @else
+                            <li class="f-item">品优购欢迎您！</li><li class="f-item">请<a href="{{url('login/login')}}" target="_blank">登录</a>　<span><a href="{{url('login/register')}}" target="_blank">免费注册</a></span></li>
+                        @endif
                     </ul>
                     <ul class="fr">
                         <li class="f-item">我的订单</li>
@@ -80,14 +86,15 @@
                                 <li class="f-item">9.9元团购</li>
                                 <li class="f-item">办公用品</li>
 
+
                             </ul>
                         </div>
                     </div>
                     <div class="yui3-u Right shopArea">
-                        <div class="fr shopcar">
+                        <div class="fr shopca
                             <div class="show-shopcar" id="shopcar">
                                 <span class="car"></span>
-                                <a class="sui-btn btn-default btn-xlarge" href="cart.html" target="_blank">
+                                <a class="sui-btn btn-default btn-xlarge" href="{{url('/')}}" target="_blank‘’">
                                     <span>我的购物车</span>
                                     <i class="shopnum">0</i>
                                 </a>
@@ -716,7 +723,7 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl tuhua">
                         <dd>
-                            <a href="" class="pic"><img src="/static/index/img/like_01.png" alt="" /></a>
+                            <a href="goods/?id=217" class="pic"><img src="/static/index/img/like_01.png" alt="" /></a>
                             <div class="like-text">
                                 <p>捷波朗 </p>
                                 <p>（jabra）BOOSI劲步</p>
@@ -724,7 +731,7 @@
                             </div>
                         </dd>
                         <dd>
-                            <a href="" class="pic"><img nsrc="assets//static/index/img/like_02.png" alt="" /></a>
+                            <a href="goods/?id=227" class="pic"><img nsrc="assets//static/index/img/like_02.png" alt="" /></a>
                             <div class="like-text">
                                 <p>三星（G5500）</p>
                                 <p>移动联通双网通</p>
@@ -736,7 +743,7 @@
                 <li class="yui3-u-1-6">
                     <dl class="picDl huozhe">
                         <dd>
-                            <a href="" class="pic"><img src="/static/index/img/like_02.png" alt="" /></a>
+                            <a href="goods/?id=332" class="pic"><img src="/static/index/img/like_02.png" alt="" /></a>
                             <div class="like-text">
                                 <p>阳光美包新款单肩包女包时尚子母包四件套女</p>
                                 <h3>¥116.00</h3>

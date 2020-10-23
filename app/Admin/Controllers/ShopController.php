@@ -26,21 +26,21 @@ class ShopController extends AdminController
     {
         $grid = new Grid(new ShopModel());
 
-        $grid->column('goods_id', __('Goods id'));
-        $grid->column('cat_id', __('Cat id'));
-        $grid->column('goods_sn', __('Goods sn'));
-        $grid->column('goods_name', __('Goods name'));
-        $grid->column('click_count', __('Click count'));
-        $grid->column('goods_number', __('Goods number'));
-        $grid->column('shop_price', __('Shop price'));
+        $grid->column('goods_id', __('商品 id'));
+        $grid->column('cat_id', __('分类 id'));
+        $grid->column('goods_sn', __('商品编号'));
+        $grid->column('goods_name', __('商品名称'));
+        $grid->column('click_count', __('点击次数'));
+        $grid->column('goods_number', __('商品数量'));
+        $grid->column('shop_price', __('商品价格'));
 //        $grid->column('keywords', __('Keywords'));
 //        $grid->column('goods_desc', __('Goods desc'));
         $grid->column('goods_img', __('缩略图'))->image();
-        $grid->column('add_time', __('Add time'))->display(function ($time){
+        $grid->column('add_time', __('商品添加时间'))->display(function ($time){
                     return date('Y-m-d H:i:s');
         });
 //        $grid->column('is_delete', __('Is delete'));
-        $grid->column('sale_num', __('Sale num'));
+//        $grid->column('sale_num', __('Sale num'));
 
         return $grid;
     }
@@ -61,13 +61,13 @@ class ShopController extends AdminController
         $show->field('goods_name', __('Goods name'));
         $show->field('click_count', __('Click count'));
         $show->field('goods_number', __('Goods number'));
-        $show->field('shop_price', __('Shop price'));
-        $show->field('keywords', __('Keywords'));
+//        $show->field('shop_price', __('Shop price'));
+//        $show->field('keywords', __('Keywords'));
         $show->field('goods_desc', __('Goods desc'));
         $show->field('goods_img', __('Goods img'));
         $show->field('add_time', __('Add time'));
-        $show->field('is_delete', __('Is delete'));
-        $show->field('sale_num', __('Sale num'));
+//        $show->field('is_delete', __('Is delete'));
+//        $show->field('sale_num', __('Sale num'));
 
         return $show;
     }
