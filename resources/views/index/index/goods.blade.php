@@ -300,6 +300,7 @@
                             <ul class="btn-choose unstyled">
                                 <li>
                                     <a href="/index/add?id={{$g->goods_id}}" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
+                                    <a href=""  target="_blank" id="fav" class="sui-btn  btn-danger addshopcar">收藏</a>
                                 </li>
                             </ul>
                         </div>
@@ -541,14 +542,24 @@
                                 <img src="/static/index/img/_/intro03.png" />
                             </div>
                         </div>
-                        <div id="two" class="tab-pane">
-                            <p>规格与包装</p>
+                        <div id="two" class="tab-pane"><p>规格与包装</p>
                         </div>
                         <div id="three" class="tab-pane">
                             <p>售后保障</p>
                         </div>
                         <div id="four" class="tab-pane">
-                            <p>商品评价</p>
+                            <ul class="goods-intro unstyled">
+                                <form action="/index/contentAdd" method="get">
+
+                                     评论添加<textarea name="content"  rows="5" cols="40"></textarea>
+                                <input type="submit" value="添加评论">
+                                    </form>
+{{--                                @foreach($res as $k=>$v)--}}
+{{--                                <li><h3>{{$v->user_name}}:</h3>--}}
+{{--                                      {{$v->content}}--}}
+{{--                                </li>--}}
+{{--                                @endforeach--}}
+                            </ul>
                         </div>
                         <div id="five" class="tab-pane">
                             <p>手机社区</p>
@@ -690,7 +701,6 @@
             <div class="Mod-service">
                 <ul class="Mod-Service-list">
                     <li class="grid-service-item intro  intro1">
-
                         <i class="serivce-item fl"></i>
                         <div class="service-text">
                             <h4>正品保障</h4>
@@ -978,3 +988,25 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function () {
+        $('#fav').on('click',function(e){
+            // alert(1111);
+            e.preventDefault();
+            $.ajax({
+                url:'/index/fav?id='+"{{$g->goods_id}}",
+                type:'get',
+                dataType:'json',
+                success:function (d) {
+                    console.log(d);
+                    if(d.errno>0){
+                        window.location='/login/login';
+                    }
+                }
+            });
+        });
+
+    })
+
+
+</script>

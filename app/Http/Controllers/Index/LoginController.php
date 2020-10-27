@@ -61,6 +61,7 @@ class LoginController extends Controller
         return view('index/login/login');
     }
     public  function  logindo(Request $request){
+
         $user_name=$request->input('user_name');
         $password =$request->input('password');
         $user_tel=$request->input('user_tel');

@@ -23,7 +23,8 @@ class IndexController extends Controller{
         $param1=[
             'app_id'       =>env('ALIPAY_APP_ID'),
             'method'       =>'alipay.trade.page.pay',
-            'return_url'   =>''
+            'return_url'   =>'2004-测试订单-'.Str::random(16),
         ];
+        print_r($param1);die;
     }
 }

@@ -7,6 +7,7 @@ use App\Model\GoodsModel;
 
 use App\Http\Controllers\Controller;
 use App\Model\OrderModel;
+use App\Model\OrderGoodsModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -65,7 +66,7 @@ class OrderController extends Controller
                 'order_id'  => $oid,
                 'goods_id'  => $v['goods_id'],
                 'goods_name'    => $v['goods_name'],
-                'sho_price'   => $v['shop_price']
+                'goods_price'   => $v['goods_price']
             ];
 
             OrderGoodsModel::insertGetId($goods);
