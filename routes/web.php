@@ -26,7 +26,7 @@ Route::prefix('login')->group(function (){
 
 });
 Route::prefix('index')->group(function (){
-    Route::get('/index','Index\IndexController@index');
+
     Route::get('/login','Index\IndexController@login');//登录
     Route::get('/add','Index\CartController@add');
     Route::get('/sss','Index\CartController@index');//
@@ -34,6 +34,7 @@ Route::prefix('index')->group(function (){
     Route::get('/prize','Index\StartController@prize');//
     Route::get('/cart','Index\CartController@cart');// 购物车
     Route::get('/create','Index\OrderController@create');
+    Route::get('/home','Index\HomeController@home');
     Route::get('/search','Index\IndexController@search');
     Route::get('/tianqi','Index\IndexController@tianqi');  // 天气
     Route::get('/guzzlel','Index\IndexController@guzzlel');
@@ -41,9 +42,13 @@ Route::prefix('index')->group(function (){
     Route::get('/fav','Index\GoodsController@fav');
     Route::get('/contentAdd','Index\GoodsController@contentAdd');
     Route::get('/list','Index\GoodsController@list');
-
-
-
+    Route::get('/move','Index\MoveController@list');
 });
+Route::get('/','Index\IndexController@index');
+
+
+
+
+
 
 

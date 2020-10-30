@@ -15,7 +15,9 @@ class GoodsController extends Controller
             $data=[
                 'g'=>$goods,
             ];
-            return view('index/index/goods',$data);
+            $res=ContentModel::get()->toArray();
+
+            return view('index/index/goods',$data,['res'=>$res]);
     }
     //点击收藏
     public function fav(Request $request){
@@ -54,16 +56,13 @@ class GoodsController extends Controller
         ];
         $res=ContentModel::insert($data);
         if($res){
-           echo '添加成功';
+           echo '添加成功 ';
         }else{
             echo '添加失败';
         }
 
     }
-    public function  list(){
-    $res=ContentModel::get();
-    return view ('index/index/goods',['res'=>$res]);
-}
+
 
 }
 

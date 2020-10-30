@@ -35,7 +35,7 @@
                     <ul class="fr">
                         <li class="f-item">我的订单</li>
                         <li class="f-item space"></li>
-                        <li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
+                        <li class="f-item"><a href="{{url('index/home')}}" target="_blank">我的品优购</a></li>
                         <li class="f-item space"></li>
                         <li class="f-item">品优购会员</li>
                         <li class="f-item space"></li>
@@ -545,6 +545,12 @@
                         <div class="item">
                             <a href="http://baidu2.wypxj.com/">
                                 <img src="/static/index/img/banner3.jpg"  />
+                            </a>
+
+                        </div>
+                        <div class="item">
+                            <a href="http://baidu2.wypxj.com/">
+                                <img src="/static/index/img/banner4.jpg"  />
                             </a>
 
                         </div>

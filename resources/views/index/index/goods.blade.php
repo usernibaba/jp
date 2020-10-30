@@ -172,7 +172,7 @@
             </div>
             <div class="fr itemInfo-wrap">
                 <div class="sku-name">
-                    <h4>{{$g->goods_name}}}</h4>
+                    <h4>{{$g['goods_name']}}</h4>
                 </div>
                 <div class="news"><span>推荐选择下方[移动优惠购],手机套餐齐搞定,不用换号,每月还有花费返</span></div>
                 <div class="summary">
@@ -182,7 +182,7 @@
                         </div>
                         <div class="fl price">
                             <i>¥</i>
-                            <em>{{$g->shop_price}}</em>
+                            <em>{{$g['shop_price']}}</em>
                             <span>降价通知</span>
                         </div>
                         <div class="fr remark">
@@ -299,7 +299,7 @@
                         <div class="fl">
                             <ul class="btn-choose unstyled">
                                 <li>
-                                    <a href="/index/add?id={{$g->goods_id}}" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
+                                    <a href="/index/add?id={{$g['goods_id']}}" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
                                     <a href=""  target="_blank" id="fav" class="sui-btn  btn-danger addshopcar">收藏</a>
                                 </li>
                             </ul>
@@ -549,18 +549,23 @@
                         </div>
                         <div id="four" class="tab-pane">
                             <ul class="goods-intro unstyled">
-                                <form action="/index/contentAdd" method="get">
 
-                                     评论添加<textarea name="content"  rows="5" cols="40"></textarea>
-                                <input type="submit" value="添加评论">
+
+                                @foreach($res as $k=>$v)
+                                    <h3 style="color: #e60012">{{$v['user_name']}}:</h3>
+
+                                    {{$v['content']}}<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; <a style="color: #e60012" >{{date("Y-m-d H:i:s",$v['c_time'])}}</a>
+
+                                </li>
+                                @endforeach  <br><br><br><br>
+                                    <form action="/index/contentAdd" method="get">
+
+                                        评论添加<textarea name="content"  rows="5" cols="40"></textarea>
+                                        <input type="submit" value="添加评论">
                                     </form>
-{{--                                @foreach($res as $k=>$v)--}}
-{{--                                <li><h3>{{$v->user_name}}:</h3>--}}
-{{--                                      {{$v->content}}--}}
-{{--                                </li>--}}
-{{--                                @endforeach--}}
                             </ul>
                         </div>
+
                         <div id="five" class="tab-pane">
                             <p>手机社区</p>
                         </div>
@@ -568,6 +573,7 @@
                 </div>
             </div>
         </div>
+
         <!--like-->
         <div class="clearfix"></div>
         <div class="like">
@@ -994,7 +1000,7 @@
             // alert(1111);
             e.preventDefault();
             $.ajax({
-                url:'/index/fav?id='+"{{$g->goods_id}}",
+                url:'/index/fav?id='+"{{$g['goods_id']}}",
                 type:'get',
                 dataType:'json',
                 success:function (d) {
